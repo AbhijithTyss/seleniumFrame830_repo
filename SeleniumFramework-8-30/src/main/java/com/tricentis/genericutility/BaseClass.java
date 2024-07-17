@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
@@ -21,6 +22,7 @@ import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.tricentis.objectrepository.HomePage;
 import com.tricentis.objectrepository.LoginPage;
@@ -28,71 +30,71 @@ import com.tricentis.objectrepository.WelcomePage;
 
 public class BaseClass {
 	public static WebDriver driver;
-	public static ExtentReports extReports;
+	public static ExtentReports extReport;
 	public ExtentTest test;
-	public static ExtentTest screenTest;
+	public static ExtentTest listTest;
 	
-	public FileUtility fLib;
-	public ExcelUtility eLib;
-	public JavaUtility jLib;
+	public WebDriverWait eWait;
 	
 	public WelcomePage wp;
 	public LoginPage lp;
 	public HomePage hp;
-	
-	@BeforeSuite
+	public static String time;
+	public JavaUtility javaLib;
+	public FileUtility fileLib;
+	public ExcelUtility excelLib;
+	@BeforeSuite(alwaysRun = true)
 	public void configReport() {
-		jLib=new JavaUtility();
-		String timeStamp = jLib.getSystemTime();
-		ExtentSparkReporter spark=new ExtentSparkReporter("./HTML_report/ExtentReport_"+timeStamp+".html");
-		extReports=new ExtentReports();
-		extReports.attachReporter(spark);
+		javaLib=new JavaUtility();
+		time = javaLib.getSystemTime();
+		ExtentSparkReporter spark=new ExtentSparkReporter("./HTML_report/EcommerceReport_"+time+".html");
+		extReport=new ExtentReports();
+		extReport.attachReporter(spark);
 	}
-	
 	@Parameters("Browser")
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void launchBrowser(@Optional("chrome") String browserName) throws IOException {
+		
 		if (browserName.equalsIgnoreCase("chrome")) {
 			driver=new ChromeDriver();
-		}else if (browserName.equalsIgnoreCase("edge")) {
-			driver=new EdgeDriver();
 		}else if (browserName.equalsIgnoreCase("firefox")) {
 			driver=new FirefoxDriver();
+		}else if (browserName.equalsIgnoreCase("edge")) {
+			driver=new EdgeDriver();
 		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		fLib=new FileUtility();
-		driver.get(fLib.getDataFromProperty("url"));
+		eWait=new WebDriverWait(driver, Duration.ofSeconds(20));
+		fileLib=new FileUtility();
+		driver.get(fileLib.getDataFromProperty("url"));
 	}
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void login(Method method) throws IOException {
-		test = extReports.createTest(method.getName());
-		screenTest=test;
+		test = extReport.createTest(method.getName());
+		listTest=test;
 		wp=new WelcomePage(driver);
 		wp.getLoginLink().click();
 		lp=new LoginPage(driver);
-		String email = fLib.getDataFromProperty("email");
-		String password = fLib.getDataFromProperty("password");
-		lp.getEmailTextField().sendKeys(email);
-		lp.getPasswordTextField().sendKeys(password);
+		lp.getEmailTextField().sendKeys(fileLib.getDataFromProperty("email"));
+		lp.getPasswordTextField().sendKeys(fileLib.getDataFromProperty("password"));
 		lp.getLoginButton().click();
-		eLib=new ExcelUtility();
-		String ExpectedTitle = eLib.getStringDataFromExcel("login", 1, 2);
-		Assert.assertEquals(driver.getTitle(), ExpectedTitle,"User failed to login");
-		Reporter.log("User logged in successfully",true);
+		excelLib=new ExcelUtility();
+		String expectedTitle = excelLib.getStringDataFromExcel("login", 1, 2);
+		Assert.assertEquals(driver.getTitle(),expectedTitle,"User failed to login" );
+		test.log(Status.PASS, "Home page is displayed");
 		hp=new HomePage(driver);
 	}
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void logout() {
 		hp.getLogoutLink().click();
+		test.log(Status.INFO, "user logged out");
 	}
-	
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void closeBrowser() {
 		driver.quit();
 	}
-	@AfterSuite
+	@AfterSuite(alwaysRun = true)
 	public void reportBackup() {
-		extReports.flush();
+		extReport.flush();
 	}
 }

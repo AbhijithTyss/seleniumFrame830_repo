@@ -9,24 +9,23 @@ import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.aventstack.extentreports.Status;
+
 public class ListenerUtility extends BaseClass implements ITestListener{
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		String methodName = result.getName();
+		listTest.log(Status.FAIL, methodName+" is failed");
 		TakesScreenshot ts=(TakesScreenshot) driver;
-		String photo = ts.getScreenshotAs(OutputType.BASE64);
-		screenTest.addScreenCaptureFromBase64String(photo);
-		System.out.println(screenTest);
-		System.out.println(test);
+		listTest.addScreenCaptureFromBase64String(ts.getScreenshotAs(OutputType.BASE64));
 		File temp = ts.getScreenshotAs(OutputType.FILE);
-		
-		File dest=new File("./screenshots/"+methodName+".png");
+		File dest=new File("./screenshots/"+methodName+time+".png");
 		try {
 			FileHandler.copy(temp, dest);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

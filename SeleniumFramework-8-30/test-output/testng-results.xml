@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[User logged in successfully]]>
-    </line>
   </reporter-output>
-  <suite started-at="2024-07-09T10:16:32 IST" name="Default suite" finished-at="2024-07-09T10:16:42 IST" duration-ms="9393">
+  <suite started-at="2024-07-17T10:11:53 IST" name="Default suite" finished-at="2024-07-17T10:12:06 IST" duration-ms="13287">
     <groups>
     </groups>
-    <test started-at="2024-07-09T10:16:32 IST" name="Default test" finished-at="2024-07-09T10:16:42 IST" duration-ms="9393">
-      <class name="books.TC_DWS_005_Test">
-        <test-method is-config="true" signature="configReport()[pri:0, instance:books.TC_DWS_005_Test@5bf0d49]" started-at="2024-07-09T10:16:32 IST" name="configReport" finished-at="2024-07-09T10:16:32 IST" duration-ms="153" status="PASS">
+    <test started-at="2024-07-17T10:11:53 IST" name="Default test" finished-at="2024-07-17T10:12:06 IST" duration-ms="13287">
+      <class name="shoppingcart.TC_DWS_003_Test">
+        <test-method is-config="true" signature="configReport()[pri:0, instance:shoppingcart.TC_DWS_003_Test@618b19ad]" started-at="2024-07-17T10:11:53 IST" name="configReport" finished-at="2024-07-17T10:11:53 IST" duration-ms="153" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configReport -->
-        <test-method is-config="true" signature="launchBrowser(java.lang.String)[pri:0, instance:books.TC_DWS_005_Test@5bf0d49]" started-at="2024-07-09T10:16:32 IST" name="launchBrowser" finished-at="2024-07-09T10:16:37 IST" duration-ms="4861" status="PASS">
+        <test-method is-config="true" signature="launchBrowser(java.lang.String)[pri:0, instance:shoppingcart.TC_DWS_003_Test@618b19ad]" started-at="2024-07-17T10:11:53 IST" name="launchBrowser" finished-at="2024-07-17T10:12:01 IST" duration-ms="8578" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -25,33 +22,31 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="login(java.lang.reflect.Method)[pri:0, instance:books.TC_DWS_005_Test@5bf0d49]" started-at="2024-07-09T10:16:37 IST" name="login" finished-at="2024-07-09T10:16:39 IST" duration-ms="2171" status="PASS">
+        <test-method is-config="true" signature="login(java.lang.reflect.Method)[pri:0, instance:shoppingcart.TC_DWS_003_Test@618b19ad]" started-at="2024-07-17T10:12:01 IST" name="login" finished-at="2024-07-17T10:12:04 IST" duration-ms="2566" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void books.TC_DWS_005_Test.clickOnBooks() throws org.apache.poi.EncryptedDocumentException,java.io.IOException]]>
+                <![CDATA[public void shoppingcart.TC_DWS_003_Test.addProduct()]]>
               </value>
             </param>
           </params>
           <reporter-output>
-            <line>
-              <![CDATA[User logged in successfully]]>
-            </line>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="clickOnBooks()[pri:0, instance:books.TC_DWS_005_Test@5bf0d49]" started-at="2024-07-09T10:16:39 IST" name="clickOnBooks" finished-at="2024-07-09T10:16:41 IST" duration-ms="1152" status="FAIL">
+        <test-method signature="addProduct()[pri:0, instance:shoppingcart.TC_DWS_003_Test@618b19ad]" started-at="2024-07-17T10:12:04 IST" name="addProduct" finished-at="2024-07-17T10:12:04 IST" duration-ms="549" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Books is not displayed expected [Books] but found [Demo Web Shop. Books]]]>
+              <![CDATA[product failed to add expected [false] but found [true]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Books is not displayed expected [Books] but found [Demo Web Shop. Books]
+              <![CDATA[java.lang.AssertionError: product failed to add expected [false] but found [true]
 at org.testng.Assert.fail(Assert.java:110)
 at org.testng.Assert.failNotEquals(Assert.java:1577)
 at org.testng.Assert.assertEqualsImpl(Assert.java:149)
 at org.testng.Assert.assertEquals(Assert.java:131)
-at org.testng.Assert.assertEquals(Assert.java:655)
-at books.TC_DWS_005_Test.clickOnBooks(TC_DWS_005_Test.java:21)
+at org.testng.Assert.assertEquals(Assert.java:1066)
+at org.testng.Assert.assertEquals(Assert.java:1030)
+at shoppingcart.TC_DWS_003_Test.addProduct(TC_DWS_003_Test.java:18)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -83,20 +78,93 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clickOnBooks -->
-        <test-method is-config="true" signature="logout()[pri:0, instance:books.TC_DWS_005_Test@5bf0d49]" started-at="2024-07-09T10:16:41 IST" name="logout" finished-at="2024-07-09T10:16:42 IST" duration-ms="769" status="PASS">
+        </test-method> <!-- addProduct -->
+        <test-method is-config="true" signature="logout()[pri:0, instance:shoppingcart.TC_DWS_003_Test@618b19ad]" started-at="2024-07-17T10:12:05 IST" name="logout" finished-at="2024-07-17T10:12:06 IST" duration-ms="1075" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <a href="/logout" class="ico-logout">...</a> is not clickable at point (1000, 9). Other element would receive the click: <div id="bar-notification" class="bar-notification success" style="display: block;">...</div>
+  (Session info: chrome=126.0.6478.127)
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [47c211dbcc245938aa21d2a9908de7d8, clickElement {id=f.E5F7CF4D42CB4BBE0C979D467A84FA59.d.8229CA094618971531837C69210047A2.e.115}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.182 (5b5d8292ddf..., userDataDir: C:\Users\abhis\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63805}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63805/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (47c211dbcc245938aa21d2a9908de7d8)] -> link text: Log out]
+Session ID: 47c211dbcc245938aa21d2a9908de7d8]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a href="/logout" class="ico-logout">...</a> is not clickable at point (1000, 9). Other element would receive the click: <div id="bar-notification" class="bar-notification success" style="display: block;">...</div>
+  (Session info: chrome=126.0.6478.127)
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [47c211dbcc245938aa21d2a9908de7d8, clickElement {id=f.E5F7CF4D42CB4BBE0C979D467A84FA59.d.8229CA094618971531837C69210047A2.e.115}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.182 (5b5d8292ddf..., userDataDir: C:\Users\abhis\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63805}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63805/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (47c211dbcc245938aa21d2a9908de7d8)] -> link text: Log out]
+Session ID: 47c211dbcc245938aa21d2a9908de7d8
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy24.click(Unknown Source)
+at com.tricentis.genericutility.BaseClass.logout(BaseClass.java:89)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:823)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:792)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:768)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:829)
+at org.testng.TestRunner.run(TestRunner.java:602)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:books.TC_DWS_005_Test@5bf0d49]" started-at="2024-07-09T10:16:42 IST" name="closeBrowser" finished-at="2024-07-09T10:16:42 IST" duration-ms="184" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:shoppingcart.TC_DWS_003_Test@618b19ad]" started-at="2024-07-17T10:12:06 IST" name="closeBrowser" finished-at="2024-07-17T10:12:06 IST" duration-ms="192" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="reportBackup()[pri:0, instance:books.TC_DWS_005_Test@5bf0d49]" started-at="2024-07-09T10:16:42 IST" name="reportBackup" finished-at="2024-07-09T10:16:42 IST" duration-ms="248" status="PASS">
+        <test-method is-config="true" signature="reportBackup()[pri:0, instance:shoppingcart.TC_DWS_003_Test@618b19ad]" started-at="2024-07-17T10:12:06 IST" name="reportBackup" finished-at="2024-07-17T10:12:06 IST" duration-ms="314" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportBackup -->
-      </class> <!-- books.TC_DWS_005_Test -->
+      </class> <!-- shoppingcart.TC_DWS_003_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
